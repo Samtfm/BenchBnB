@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as APIUtilsS from './util/session_api_util';
+import Root from './components/root';
 import configureStore from './store/store';
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById('root');
-  window.APIUtilsS = APIUtilsS;
-  window.store = configureStore();
-  ReactDOM.render(<h1>Welcome to BenchBnB</h1>, root);
+  const store = configureStore();
+  window.store = store;
+  ReactDOM.render(<Root store={store} />, root);
 });
