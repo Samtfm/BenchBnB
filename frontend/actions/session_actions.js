@@ -5,7 +5,8 @@ export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
 export const logIn = (user) => dispatch => {
   return APIUtilsS.signIn(user)
-    .then((res)=>(dispatch(receiveCurrentUser(res))), (err)=> (dispatch(receiveErrors(err))));
+    .then((res)=>(dispatch(receiveCurrentUser(res))),
+    (err)=> (dispatch(receiveErrors(err))));
 };
 
 export const logOut = () => dispatch => {
@@ -14,15 +15,16 @@ export const logOut = () => dispatch => {
 
 export const signUp = (user) => dispatch => {
   return APIUtilsS.signUp(user)
-    .then((r)=>dispatch(receiveCurrentUser(r)),(err)=>(dispatch(receiveErrors(err))));
+    .then((r)=>dispatch(receiveCurrentUser(r)),
+    (err)=>(dispatch(receiveErrors(err))));
 };
 
-export const receiveCurrentUser = (user) =>({
+export const receiveCurrentUser = (currentUser = null) =>({
   type: RECEIVE_CURRENT_USER,
-  user
+  currentUser
 });
 
-export const receiveErrors = (errors) => ({
+export const receiveErrors = (errors = []) => ({
   type: RECEIVE_ERRORS,
   errors
 });
