@@ -19,4 +19,5 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 import * as BenchAPIUtil from './util/bench_api_util';
-window.BenchAPIUtil = BenchAPIUtil;
+import {requestBenches} from './actions/bench_actions';
+window.requestBenches = requestBenches;
