@@ -3,19 +3,19 @@ import * as APIUtilsS from '../util/session_api_util';
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_ERRORS = "RECEIVE_ERRORS";
 
-export const logIn = (user) => dispatch => {
-  return APIUtilsS.signIn(user)
+export const login = (user) => dispatch => {
+  return APIUtilsS.signin(user)
     .then((res)=>(dispatch(receiveCurrentUser(res))),
     (err)=> (dispatch(receiveErrors(err))));
 };
-export const logOut = () => dispatch => {
-  return APIUtilsS.signOut().then(dispatch(receiveCurrentUser(null)));
+export const logout = () => dispatch => {
+  return APIUtilsS.signout().then(dispatch(receiveCurrentUser(null)));
 };
 
-export const signUp = (user) => dispatch => {
-  return APIUtilsS.signUp(user)
-    .then((r)=>dispatch(receiveCurrentUser(r)),
-    (err)=>(dispatch(receiveErrors(err))));
+export const signup = (user) => dispatch => {
+  return APIUtilsS.signup(user)
+    .then((r)=> dispatch(receiveCurrentUser(r)),
+      (err)=>(dispatch(receiveErrors(err))));
 };
 
 export const receiveCurrentUser = (currentUser = null) =>({
@@ -28,6 +28,6 @@ export const receiveErrors = (errors = []) => ({
   errors
 });
 
-window.logIn = logIn;
-window.logOut = logOut;
-window.signUp = signUp;
+window.login = login;
+window.logout = logout;
+window.signup = signup;
