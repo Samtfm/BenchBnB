@@ -7,7 +7,7 @@ class Greeting extends React.Component {
   }
 
   render() {
-
+    console.log(this.props.currentUser);
     if (this.props.currentUser){
       return (<div id='Greeting'>
           <h2>Hello, {this.props.currentUser.username}!</h2>

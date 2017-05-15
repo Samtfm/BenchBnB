@@ -8,7 +8,6 @@ export const logIn = (user) => dispatch => {
     .then((res)=>(dispatch(receiveCurrentUser(res))),
     (err)=> (dispatch(receiveErrors(err))));
 };
-
 export const logOut = () => dispatch => {
   return APIUtilsS.signOut().then(dispatch(receiveCurrentUser(null)));
 };
@@ -28,3 +27,7 @@ export const receiveErrors = (errors = []) => ({
   type: RECEIVE_ERRORS,
   errors
 });
+
+window.logIn = logIn;
+window.logOut = logOut;
+window.signUp = signUp;
