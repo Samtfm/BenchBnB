@@ -17,3 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.store = store;
   ReactDOM.render(<Root store={store} />, root);
 });
+
+import * as BenchAPIUtil from './util/bench_api_util';
+window.BenchAPIUtil = BenchAPIUtil;
